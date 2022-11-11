@@ -1,0 +1,22 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+              "sns:Publish",
+              "sns:Subscribe",
+              "sns:CreateTopic",
+              "sns:GetTopicAttributes",
+              "sns:SetTopicAttributes",
+              "sns:TagResource",
+              "sns:UntagResource",
+              "sns:ListTagsForResource",
+              "sns:ListSubscriptionsByTopic"
+            ],
+            "Resource": [
+              "arn:aws:sns:YOUR_REGION:YOUR_ACCOUNT_NUMBER:YOUR_TOPIC_NAME"
+            ]
+        }
+    ]
+}
