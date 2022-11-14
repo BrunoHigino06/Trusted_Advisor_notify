@@ -1,5 +1,5 @@
 #Iam vars
-#Role vars
+#Iam role vars
 variable "Lambda_role" {
     type = map(any)
     default = {

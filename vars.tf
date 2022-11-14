@@ -1,4 +1,5 @@
 #Iam vars
+#Iam role vars
 variable "Lambda_role" {
     type = map(any)
     default = {
@@ -17,4 +18,17 @@ variable "SNS_TAdvisor_policy" {
       policy = ""
     }
   
+}
+
+#Infrastructure vars
+#Lambda function vars
+variable "MainLambda" {
+    type = map(any)
+    default = {
+      filename = ""
+      function_name = ""
+      role = ""
+      handler = ""
+      runtime = ""
+    }
 }
