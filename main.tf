@@ -31,8 +31,16 @@ module "infrastructure.lambda" {
    MainLambda = {
         filename = var.MainLambda.filename
         function_name = var.MainLambda.function_name
-        role = var.MainLambda.role
-        handler = var.MainLambda.handler
+        role = module.iam.Lambda_role_arn
+        handler = var.MainLambda.function_name
         runtime = var.MainLambda.runtime
+   }
+
+   #CloudWatch Event execution inputs
+   allow_cloudwatch = {
+        statement_id = var.allow_cloudwatch.statement_id
+        action = var.allow_cloudwatch.action
+        principal = var.allow_cloudwatch.principal
+        source_arn = var.allow_cloudwatch.source_arn
    }
 }

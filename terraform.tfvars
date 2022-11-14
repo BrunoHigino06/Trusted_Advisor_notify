@@ -11,3 +11,14 @@ SNS_TAdvisor_policy = {
     description = "Policy to lambda acess the SNS and Trusted Advisor"
     policy = "SNS_TAdvisor_policy.json"
 }
+
+#Infrastructure inputs
+#Lambda function inputs
+MainLambda = {
+    filename = "trustedadvisor_notify.zip"
+    function_name = "trustedadvisor_notify"
+    runtime = "python3.8"
+}
+
+#CloudWatch Event execution inputs
+1
