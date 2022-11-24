@@ -8,6 +8,16 @@ variable "MainLambda" {
       runtime = ""
     }
 }
+
+#CloudWatch event vars
+variable "every_day" {
+    type = map(any)
+    default = {
+      name = ""
+      schedule_expression = ""
+    }
+}
+
 #CloudWatch Event execution vars
 variable "allow_cloudwatch" {
     type = map(any)
@@ -15,6 +25,5 @@ variable "allow_cloudwatch" {
       statement_id = ""
       action = ""
       principal = ""
-      source_arn = ""
     }
 }

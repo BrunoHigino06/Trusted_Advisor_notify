@@ -21,6 +21,19 @@ module "iam" {
 
 }
 
+module "infrastructure.cloudwatch.events" {
+    source = ".\\infrastructure\\cloudwatch_event\\"
+    providers = {
+        aws = aws.us
+   }
+
+   #Cloudwatch event inputs
+   every_day = {
+        name = var.every_day.name
+        schedule_expression = var.every_day.schedule_expression
+   }
+}
+
 module "infrastructure.lambda" {
     source = ".\\infrastructure\\lamdba\\"
     providers = {
@@ -36,11 +49,16 @@ module "infrastructure.lambda" {
         runtime = var.MainLambda.runtime
    }
 
+   #Cloudwatch event inputs
+   every_day = {
+        name = var.every_day.name
+        schedule_expression = var.every_day.schedule_expression
+   }
+
    #CloudWatch Event execution inputs
    allow_cloudwatch = {
         statement_id = var.allow_cloudwatch.statement_id
         action = var.allow_cloudwatch.action
         principal = var.allow_cloudwatch.principal
-        source_arn = var.allow_cloudwatch.source_arn
    }
 }

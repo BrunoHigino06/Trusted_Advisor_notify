@@ -21,6 +21,18 @@ variable "SNS_TAdvisor_policy" {
 }
 
 #Infrastructure vars
+
+#Cloudwatch module vars
+#Cloudwatch event vars
+variable "every_day" {
+    type = map(any)
+    default = {
+      name = ""
+      schedule_expression = ""
+    }
+}
+
+#Lambda module vars
 #Lambda function vars
 variable "MainLambda" {
     type = map(any)
@@ -40,6 +52,5 @@ variable "allow_cloudwatch" {
       statement_id = ""
       action = ""
       principal = ""
-      source_arn = ""
     }
 }

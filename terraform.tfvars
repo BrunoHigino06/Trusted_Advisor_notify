@@ -13,6 +13,8 @@ SNS_TAdvisor_policy = {
 }
 
 #Infrastructure inputs
+#Lambda module inputs
+
 #Lambda function inputs
 MainLambda = {
     filename = "trustedadvisor_notify.zip"
@@ -20,5 +22,15 @@ MainLambda = {
     runtime = "python3.8"
 }
 
+#Cloudwatch event inputs
+every_day = {
+    name = "daily execution"
+    schedule_expression = "rate(1 day)"
+}
+
 #CloudWatch Event execution inputs
-1
+allow_cloudwatch = {
+    statement_id = "AllowExecutionFromCloudWatch"
+    action = "lambda:InvokeFunction"
+    principal = "events.amazonaws.com"
+}
